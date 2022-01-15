@@ -107,3 +107,6 @@ migrations: {
 -Após esse processo exclua a pasta 'migrations' rode o comando 'npx knex migrate:make create_table_users' novamente para que a pasta seja criado no lugar certo seguindo o caminha definido no arquivo de configuracao.
 
 - Aula pausada no minuto 26:43
+
+- O gitHub so aceita token de autenticacao para acesso remoto ao repositorio, segue o link para o tutorial, o token tem duracao, o que que esta operante no momento expira daqui 29 dias a partir de hoje 15 de janeiro 2022, segue o link do tutorial:
+https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
