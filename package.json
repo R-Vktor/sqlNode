@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "express": "^4.17.2",
+    "knex": "^0.95.15",
+    "nodemon": "^2.0.15",
+    "pg": "^8.7.1"
+  },
+  "name": "sqlnode",
+  "description": "Crie arquivo source.list: sudo gedit /etc/apt/sources.list.d/pgdg.list",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "nodemon src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {}
+}
