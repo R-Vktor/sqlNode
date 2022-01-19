@@ -30,7 +30,13 @@ sudo su - postgres
 psql -U postgres
 
 Listar Banco de dados
-    psql -l
+    \l
+
+Listar tabelas disponiveis
+    \dt
+
+Ver conteudo da tabela
+    \d nomeTabela
 
 Para voltar ao prompt 
     \q
@@ -56,6 +62,8 @@ Conectar-se a uma tabela
 
 Mostrar estrutura de uma tabela
 \d nomeTabela; 
+
+Para excluir uma tabela usamos a clausula 'DROP', porem se a mesma possuir um relacionamento com outras tabelas será necessario excluir elas primeiro e dpois excluir a que pretendemos, casocontrario o SGBD nao permitirá. 
 
 ====================================================================
 
@@ -110,3 +118,5 @@ migrations: {
 
 - O gitHub so aceita token de autenticacao para acesso remoto ao repositorio, segue o link para o tutorial, o token tem duracao, o que que esta operante no momento expira daqui 29 dias a partir de hoje 15 de janeiro 2022, segue o link do tutorial:
 https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+
+Aula parou no minuto 28:00;
