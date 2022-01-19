@@ -120,3 +120,5 @@ migrations: {
 https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 
 Aula parou no minuto 28:00;
+
+Resolvido problema de autenticacao para subir mudanças para rep remoto.
