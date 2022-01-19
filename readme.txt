@@ -77,7 +77,7 @@ Para excluir uma tabela usamos a clausula 'DROP', porem se a mesma possuir um re
 
 - ja foi baixado o Insomnia porem tem que descompactar e adicionar ao projeto
 
-- foi feito a escolha pelo Postman no lugar do insomnia, o mesmo se encontra na pasta Downloads ja descompactado e pronto para uso.
+- Ja foi feita a descompactacao do insomnia, o mesmo esta no diretorio raiz desta aplicacao, use o comando  'insomnia open' para chamar.
 
 - No projeto será usado o nodemon para fazer o hotreload, dessa forma o nodemon re-ligará o servidor toda vez que houver uma mudança.
 
@@ -119,6 +119,18 @@ migrations: {
 - O gitHub so aceita token de autenticacao para acesso remoto ao repositorio, segue o link para o tutorial, o token tem duracao, o que que esta operante no momento expira daqui 29 dias a partir de hoje 15 de janeiro 2022, segue o link do tutorial:
 https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 
-Aula parou no minuto 28:00;
+- Aula parou no minuto 28:00;
 
-Resolvido problema de autenticacao para subir mudanças para rep remoto.
+- Resolvido problema de autenticacao para subir mudanças para rep remoto.
+
+- O arquivo migration vai ter duas funcoes que terao o metodo responsavel por executar uma acao e um outro metodo desfaze-la caso necessario
+
+- O retorno delas é uma promessa 
+
+- Para conseguir rodar o script depois de configurado usamos o seguinte comando:
+
+- npx knex migrate:latest
+
+- Feito o commit e enviado para o rep remoto 
+
+- Aula parou no minuto 35:06
