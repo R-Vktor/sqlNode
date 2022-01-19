@@ -134,3 +134,75 @@ https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/c
 - Feito o commit e enviado para o rep remoto 
 
 - Aula parou no minuto 35:06
+
+- Foi adicionado a configuracao do seed no arquivo knex.js ainda dentro do objeto development da seguinte forma:
+
+seeds: {
+    directory: `${__dirname}/src/database/seeds`
+    }
+
+dessa forma quando for rodado o comando: 'npx knex seed:make numeroAcao_tabela a que se refere' o seed sera criado no mesmo diretorio ques esta as migrations.
+
+NOTA: cada vez que for adicionada uma nova açao no seed é necessario numerar por questao de organizacao, pois o seed ao contrario da migration nao faz a numeracao automatica, entao a composicao do comando fica da seguinte forma: 'numero da acao + nome da tabela a que se refere' EX: 0001_users
+
+NOTA: Tanto a pasta migrations quanto a pasta seeds devem ficar dentro da pasta 'database' e elas sao movidas para a pasta database via configuracao no arquivo knex.js.
+
+- Apos inserir os dados e rodar o comando para criar o seed, agora dentro do arquivo gerado ja vem um template da açao de inserir usando o knex, foi colocado uns usuarios para a tabela ja pter uns dado logo de inicio.
+
+- Após configurar o arquivo gerado pelo seed rode o seguinte comando: npx knex seed:run  dessa forma será executado o que tiver sido configurado.
+
+- Foi configurado o arquivo "server.js" para receber as 'req' e 'res' foi importado o const knex = require('./database');
+
+- Nesse ponto foi usado o insomnia para simular e vericiar a conexao com o banco de dados atraves do verbos 'htttp'
+
+NOTA: Nao se esqueça de estar com o servidor rodando atraves do nodemoon, caso contrario as nao será possivel fazer nehuma acao.
+
+- Foi criado o arquivo routes.js dentro da pasta 'src' para poder separar as responsabilidades, este arquivo ficará responsável somente pelas rotas
+
+- Na arquivo routes foi colocado a rota ./users e exportado ela para o arquivo server.js
+
+-Na sequencia foi criado a pasta 'controllers' dentro da pasta 'src' que será a parte de configuracoes para as funcoes para cada tipo de rota.
+
+- Cada recurso possuirá um arquivo de config dentro da pasta controllers.
+
+- Neste contexto entendemos por recurso as rotas. Por exemplo '/users'
+
+- Como temos um recurso por enquanto, vamos criar o arquivo UserController.js dentro da pasta controllers. nele colocaremos a estrutura de req e res do recurso 'user'
+
+- Neste arquivo deixaremos a estrutura em forma de promisse 'async await', traremos o import do knex pois o mesmo esta sendo usado neste arquivo agora.
+
+- É necessario adicionar a linha  app.use(express.json()) no arquivo  server.js para que as rotas possam receber no body da reequisicao um array de dados em forma de Json()
+
+- Neste ponto criaremos as outras acoes para completar o CRUD do recurso 'users' obviamente dentro do arquivo 'Usercontroller' dessa forma se houver um outro recurso será criado um arquivo dentro do controller para ele com as devidas acoes para cada verbo.
+
+- Dentro da estrutura do verbo CREATE é necessário fazer a extracao das informacoes pertinentes antes de jogalas no banco de dados, dessa forma evitando que de erro e tambem evitando ataques de 'sqlinjection'
+
+- Neste ponto será adicionado uma estrutura para capturar os erros, esta estrutura ficará no arquivo 'server.js'. Esta estrutura se chama 'catch all' e para isso usamos a idea de 'midleware' que significa que tudo que estiver entre a requisicao ate a respsosta é 'midleware' ou seja, do ponto A ao ponto C temos o ponto B entao todo caminho do A ate o C é midleware, entao toda transformacao que os dados sofrem, toda manipulacao é midleware ate que a resposta fique pronta.
+
+- Numa estrutura do tipo 'catch all' usamos os parametros req, res  next e se adicionarmos um quarto parametro ele altomaticamente se torna o que irá receber o erro, portanto colocamos ele em primeiro lugar ficando da seguinte forma:
+
+app.use((error, req, res, next) => {})
+
+
+- Foram adicionadas as estruturas de  catch all e notFound e finalizado a adicao dos outros verbos para completar o 'CRUD' ja com os devidos tratamentos de erros
+
+- Feito o devido commit do progresso atual
+
+- Aula parou em 1:07:12
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
