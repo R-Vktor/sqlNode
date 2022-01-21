@@ -190,10 +190,36 @@ app.use((error, req, res, next) => {})
 
 - Aula parou em 1:07:12
 
- 
+- Continuando o projeto faremos uma nova migration para criar um projeto e fazer os relacionamentos da tabela usaer com seus respectivos projetos que serao do tipo  1 - n ou seja, '1 usuario que possui N projetos'
+
+- Utilizamos o comando: npx knex migrate:make create_projects_table
+
+- Nossa segunda migration fica da seguinte forma: 
 
 
+exports.up = knex => knex.schema.createTable('projects', table => {
+    table.increments('id')
+    table.text('title')
 
+    // criando relacionamentos
+    table.integer('user_id')
+        .references('users.id')
+        .notNullable()
+        .onDelete('CASCADE')
+
+    table.timestamps(true, true)
+})
+
+exports.down = knex => knex.schema.dropTable('users')
+
+- Foi definido que quando a tabela users for deletada os seus relacionamentos tambem o serão com a propriedade '.onDelete('CASCADE')'
+
+- Depois de configurar a migration rodamos o comando: npx knex migrate:latest dessa forma sera js criada a tabela 'projects' que fará relacionamento com a users
+
+- Na sequencia criamos o seed com comando: npx knex seed:make 002_projects
+
+- apos configurar o seed como nao é mais o primeiro será necessario especificar o seed na hora de rodar o run, nesse caso do projeto ficará da seguinte forma:
+npx knex seed:run --specific 002_projects.js
 
 
 
